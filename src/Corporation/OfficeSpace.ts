@@ -177,7 +177,7 @@ export class OfficeSpace {
     let jobCount = this.employees.reduce((acc, employee) => (employee.pos === job ? acc + 1 : acc), 0);
 
     for (const employee of this.employees) {
-      if (jobCount == amount) return true
+      if (jobCount == amount) return true;
       if (employee.pos === EmployeePositions.Unassigned && jobCount <= amount) {
         employee.pos = job;
         jobCount++;
@@ -186,8 +186,7 @@ export class OfficeSpace {
         jobCount--;
       }
     }
-    if (jobCount !== amount) return false;
-    return true;
+    return jobCount === amount;
   }
 
   toJSON(): any {
