@@ -75,6 +75,7 @@ import { IPort } from "./NetscriptPort";
 
 import {
   NS as INS,
+  NSEnums as INSEnums,
   Singularity as ISingularity,
   Player as INetscriptPlayer,
   Gang as IGang,
@@ -534,10 +535,12 @@ export function NetscriptFunctions(workerScript: WorkerScript): NS {
   const stockmarket = NetscriptStockMarket(Player, workerScript, helper);
   const ui = NetscriptUserInterface(Player, workerScript, helper);
   const grafting = NetscriptGrafting(Player, workerScript, helper);
+  const nsenum = wrapAPI(helper, {}, workerScript, NetscriptFunctions(workerScript), "enum")
+    .enum as unknown as INSEnums;
 
   const base: INS = {
     ...singularity,
-
+    enum: nsenum,
     singularity: singularity,
     gang: gang,
     bladeburner: bladeburner,

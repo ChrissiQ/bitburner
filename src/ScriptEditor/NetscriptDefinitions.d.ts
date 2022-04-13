@@ -6423,7 +6423,7 @@ export interface NS {
    */
   getSharePower(): number;
 
-  // enum: NSEnums;
+  enum: NSEnums;
 }
 
 /** @public */
