@@ -535,8 +535,7 @@ export function NetscriptFunctions(workerScript: WorkerScript): NS {
   const stockmarket = NetscriptStockMarket(Player, workerScript, helper);
   const ui = NetscriptUserInterface(Player, workerScript, helper);
   const grafting = NetscriptGrafting(Player, workerScript, helper);
-  const nsenum = wrapAPI(helper, {}, workerScript, NetscriptFunctions(workerScript), "enum")
-    .enum as unknown as INSEnums;
+  const nsenum = NetscriptFunctions(workerScript).enum as unknown as INSEnums;
 
   const base: INS = {
     ...singularity,
